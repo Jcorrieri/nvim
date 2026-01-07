@@ -7,6 +7,11 @@ vim.opt.termguicolors = true
 
 require("config.lazy")
 
+-- Enable LSP Servers
+vim.lsp.enable({ "clangd" })
+vim.lsp.enable({ "lua_ls" })
+vim.lsp.enable({ "pyright" })
+
 -- === APPEARANCE ===
 vim.opt.background = "dark"
 vim.opt.number = true

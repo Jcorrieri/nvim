@@ -1,32 +1,28 @@
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  },
-  config = function()
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = { "clangd", "pyright" },
-    })
+    {
+        "neovim/nvim-lspconfig",
+    },
 
-    local lspconfig = require("lspconfig")
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        config = function()
+            require("mason").setup()
+        end,
+    },
 
-    -- C++
-    lspconfig.clangd.setup({})
-
-    -- Python
-    lspconfig.pyright.setup({})
-
-    -- Optional keybindings
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-      end,
-    })
-  end,
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "clangd",
+                    "lua_ls",
+                    "pyright",
+                },
+            })
+        end,
+    },
 }
+
