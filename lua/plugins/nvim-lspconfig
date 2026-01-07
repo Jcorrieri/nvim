@@ -1,0 +1,33 @@
+return {
+  "neovim/nvim-lspconfig",
+  version="v1.8.0",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  },
+  config = function()
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = { "clangd", "pyright" },
+    })
+
+    local lspconfig = require("lspconfig")
+
+    -- C++
+    lspconfig.clangd.setup({})
+
+    -- Python
+    lspconfig.pyright.setup({})
+
+    -- Optional keybindings
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(ev)
+        local opts = { buffer = ev.buf }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+      end,
+    })
+  end,
+}
