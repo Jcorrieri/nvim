@@ -7,10 +7,12 @@ vim.opt.termguicolors = true
 
 require("config.lazy")
 
--- Enable LSP Servers
-vim.lsp.enable({ "clangd" })
-vim.lsp.enable({ "lua_ls" })
-vim.lsp.enable({ "pyright" })
+-- Configure LSP Servers
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+vim.lsp.enable({ "clangd" }, { capabilities = capabilities })
+vim.lsp.enable({ "lua_ls" }, { capabilities = capabilities })
+vim.lsp.enable({ "pyright" }, { capabilities = capabilities })
 
 -- === APPEARANCE ===
 vim.opt.background = "dark"
