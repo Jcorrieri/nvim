@@ -24,6 +24,6 @@ return {
             require('telescope.builtin').find_files({
                 cwd = vim.fn.input("Search in directory: ", vim.fn.getcwd(), "dir"),
             })
-            end, desc = 'Search in given directory' },
+        end, desc = 'Search in given directory' },
     },
 }

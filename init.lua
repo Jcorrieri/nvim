@@ -13,6 +13,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 vim.lsp.enable({ "clangd" }, { capabilities = capabilities })
 vim.lsp.enable({ "lua_ls" }, { capabilities = capabilities })
 vim.lsp.enable({ "pyright" }, { capabilities = capabilities })
+vim.lsp.enable({ "gopls" }, { capabilities = capabilities })
 
 -- === APPEARANCE ===
 vim.opt.background = "dark"
