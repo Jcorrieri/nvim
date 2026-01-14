@@ -15,6 +15,10 @@ vim.lsp.enable({ "lua_ls" }, { capabilities = capabilities })
 vim.lsp.enable({ "pyright" }, { capabilities = capabilities })
 vim.lsp.enable({ "gopls" }, { capabilities = capabilities })
 
+-- === TERMINAL ===
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]])
+
 -- === APPEARANCE ===
 vim.opt.background = "dark"
 vim.opt.number = true
@@ -24,6 +28,8 @@ vim.opt.guicursor = "n-v-i-c:block-Cursor"
 -- === SEARCH ===
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- === INDENTATION ===
 -- equivalent of: filetype plugin indent on
