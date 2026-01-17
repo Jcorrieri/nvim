@@ -5,7 +5,7 @@ return {
     config = function()
         require('onedark').setup({
             style = 'dark',  -- Options: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
-            transparent = true,
+            transparent = false, -- Set false for laptop due to duller colors
         })
         require('onedark').load()
     end,

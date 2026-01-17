@@ -14,6 +14,11 @@ vim.lsp.enable({ "clangd" }, { capabilities = capabilities })
 vim.lsp.enable({ "lua_ls" }, { capabilities = capabilities })
 vim.lsp.enable({ "pyright" }, { capabilities = capabilities })
 vim.lsp.enable({ "gopls" }, { capabilities = capabilities })
+vim.lsp.enable({ "angularls" }, { capabilities = capabilities })
+vim.lsp.enable({ "html" }, { capabilities = capabilities })
+vim.lsp.enable({ "cssls" }, { capabilities = capabilities })
+vim.lsp.enable({ "ts_ls" }, { capabilities = capabilities })
+vim.lsp.enable({ "angularls" }, { capabilities = capabilities })
 
 -- === TERMINAL ===
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
@@ -24,6 +29,10 @@ vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
+vim.opt.wrap = false           -- Disable line wrapping
+vim.opt.linebreak = true       -- If wrap is enabled, break at word boundaries
+vim.opt.scrolloff = 8          -- Keep 8 lines visible above/below cursor
+vim.opt.sidescrolloff = 8      -- Keep 8 columns visible when scrolling horizontally
 
 -- === SEARCH ===
 vim.opt.hlsearch = true
