@@ -20,11 +20,15 @@ vim.lsp.enable({ "cssls" }, { capabilities = capabilities })
 vim.lsp.enable({ "ts_ls" }, { capabilities = capabilities })
 vim.lsp.enable({ "angularls" }, { capabilities = capabilities })
 
--- === TERMINAL ===
+-- TERMINAL 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]])
 
--- === APPEARANCE ===
+-- SPELLCHECK 
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+
+-- APPEARANCE 
 vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -34,13 +38,13 @@ vim.opt.linebreak = true       -- If wrap is enabled, break at word boundaries
 vim.opt.scrolloff = 8          -- Keep 8 lines visible above/below cursor
 vim.opt.sidescrolloff = 8      -- Keep 8 columns visible when scrolling horizontally
 
--- === SEARCH ===
+-- SEARCH 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- === INDENTATION ===
+-- INDENTATION 
 -- equivalent of: filetype plugin indent on
 vim.cmd("filetype plugin indent on")
 
