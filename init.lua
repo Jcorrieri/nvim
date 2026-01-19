@@ -44,6 +44,9 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Digraphs
+vim.keymap.set("n", "<leader>dg", "<cmd>help digraph-table<CR>")
+
 -- INDENTATION 
 -- equivalent of: filetype plugin indent on
 vim.cmd("filetype plugin indent on")

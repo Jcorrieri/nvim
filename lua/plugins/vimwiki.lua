@@ -10,5 +10,14 @@ return {
     hi VimwikiHeader5 guifg=#E5C07B gui=bold
     hi VimwikiHeader6 guifg=#56B6C2 gui=bold
     ]])
+
+        vim.api.nvim_create_autocmd('BufEnter', {
+            pattern = vim.fn.expand('~/vimwiki') .. '/**',
+            callback = function()
+                vim.opt_local.wrap = true
+                vim.opt_local.linebreak = true
+                vim.opt_local.breakindent = true
+            end,
+        })
     end,
 }
