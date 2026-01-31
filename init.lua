@@ -26,13 +26,7 @@ vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]])
 
 -- SPELLCHECK 
 vim.opt.spelllang = "en_us"
-vim.opt.spell = true
-vim.api.nvim_create_autocmd("TermOpen", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.spell = false
-  end,
-})
+
 -- APPEARANCE 
 vim.opt.background = "dark"
 vim.opt.number = true

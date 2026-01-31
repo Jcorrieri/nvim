@@ -15,6 +15,7 @@ return {
     keys = {
         { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
         { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'View Buffers' },
+        { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep' },
         { '<leader>fa', function()
             require('telescope.builtin').find_files({ hidden = true })
         end, desc = 'Find files w/ hidden' },
