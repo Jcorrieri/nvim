@@ -26,6 +26,7 @@ vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]])
 
 -- SPELLCHECK 
 vim.opt.spelllang = "en_us"
+vim.g.vimwiki_global_ext = 0 -- disable markdown as vimwiki
 
 -- APPEARANCE 
 vim.opt.background = "dark"
