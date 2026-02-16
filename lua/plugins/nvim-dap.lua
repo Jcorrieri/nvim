@@ -46,24 +46,30 @@ return {
             {
                 type = 'python',
                 request = 'launch',
-                name = "Launch file",
-                program = "${file}", -- This will debug the current file
+                name = "Launch file (Conda)",
+                program = "${file}",
                 pythonPath = function()
-                    -- Use the Python from your virtual environment if available
+                    -- 1. Check for a local conda env in the current directory
                     local cwd = vim.fn.getcwd()
-                    if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-                        return cwd .. '/venv/bin/python'
-                    elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
-                        return cwd .. '/.venv/bin/python'
-                    else
-                        return '/usr/bin/python3'
+                    if vim.fn.executable(cwd .. '/env/bin/python') == 1 then
+                        return cwd .. '/env/bin/python'
                     end
+
+                    -- 2. Fallback to the active Conda environment via shell variable
+                    -- This works if you ran 'conda activate' before launching Neovim
+                    local conda_prefix = os.getenv("CONDA_PREFIX")
+                    if conda_prefix then
+                        return conda_prefix .. '/bin/python'
+                    end
+
+                    -- 3. Final fallback to system python
+                    return '/usr/bin/python3'
                 end,
             },
             {
                 type = 'python',
                 request = 'launch',
-                name = "Launch file with arguments",
+                name = "Launch file with arguments (Conda)",
                 program = "${file}",
                 args = function()
                     local args_string = vim.fn.input('Arguments: ')
@@ -71,13 +77,16 @@ return {
                 end,
                 pythonPath = function()
                     local cwd = vim.fn.getcwd()
-                    if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-                        return cwd .. '/venv/bin/python'
-                    elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
-                        return cwd .. '/.venv/bin/python'
-                    else
-                        return '/usr/bin/python3'
+                    if vim.fn.executable(cwd .. '/env/bin/python') == 1 then
+                        return cwd .. '/env/bin/python'
                     end
+
+                    local conda_prefix = os.getenv("CONDA_PREFIX")
+                    if conda_prefix then
+                        return conda_prefix .. '/bin/python'
+                    end
+
+                    return '/usr/bin/python3'
                 end,
             },
         }
