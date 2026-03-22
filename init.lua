@@ -32,7 +32,6 @@ vim.g.vimwiki_global_ext = 0 -- disable markdown as vimwiki
 vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
 vim.opt.wrap = false           -- Disable line wrapping
 vim.opt.linebreak = true       -- If wrap is enabled, break at word boundaries
 vim.opt.scrolloff = 8          -- Keep 8 lines visible above/below cursor
